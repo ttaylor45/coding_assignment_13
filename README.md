@@ -1,46 +1,172 @@
-# Getting Started with Create React App
+Assignment Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This assignment 13 is an extension of the UI Component Library created in Coding Assignment 12. The purpose of this assignment is to improve the assignment workflow by integrating code quality checks, continuous integration, and a production ready Docker deployment.
 
-## Available Scripts
+Assignment Features
+React Component Library
+TypeScript
+Storybook
+ESLint
+Prettier
+Husky Git Hooks
+GitHub Actions
+Docker
+Nginx
+Prerequisites
 
-In the project directory, you can run:
+Before running this project, install the following software:
 
-### `npm start`
+Node.js (Version 20 or newer)
+npm
+Docker Desktop (or Docker Engine)
+Git
+Installing Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone the repository:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+git clone https://github.com/ttaylor45/coding_assignment_13.git
 
-### `npm test`
+Enter the project folder:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+cd coding_assignment_13
 
-### `npm run build`
+Install the project dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm install
+Running the Application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Start the React development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm start
 
-### `npm run eject`
+The application will be available at:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+http://localhost:3000
+Running Storybook
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To view the UI components individually:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+npm run storybook
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Storybook will run on:
 
-## Learn More
+http://localhost:6006
+Code Quality Checks
+Format the Project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Automatically format the source code:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm run format
+
+Check formatting without making changes:
+
+npm run format:check
+ESLint
+
+Run ESLint:
+
+npm run lint
+Automated Tests
+
+Run all Jest tests:
+
+npm run test:ci
+Run All Quality Checks
+
+Run every code quality check with a single command:
+
+npm run quality
+
+This command executes:
+
+Prettier
+ESLint
+Jest Tests
+
+If any of these checks fail, the command exits with an error.
+
+Husky Pre-Commit Hook
+
+Husky has been configured to automatically execute:
+
+npm run quality
+
+before every Git commit.
+
+This ensures:
+
+Code formatting follows the project standard.
+ESLint detects code-quality issues.
+All tests pass.
+
+If any of these checks fail, Git prevents the commit until the problems are corrected.
+
+GitHub Actions (Continuous Integration)
+
+GitHub Actions has been configured to automatically run on every push and pull request.
+
+The workflow performs the following steps:
+
+Install dependencies
+Run Prettier formatting checks
+Run ESLint
+Run automated tests
+Build the production React application
+
+This guarantees that all submitted code satisfies the same quality requirements enforced locally by Husky.
+
+Building the Docker Image
+
+Build the production Docker image:
+
+docker build -t taylor_trent_ui_garden_assignment13 .
+Running the Docker Container
+
+Run the container:
+
+docker run -d --name taylor_trent_coding_assignment13 -p 8018:8018 taylor_trent_ui_garden_assignment13
+
+Open the application:
+
+http://127.0.0.1:8018
+Docker Commands
+Stop the container
+docker stop taylor_trent_coding_assignment13
+Start the container
+docker start taylor_trent_coding_assignment13
+Restart the container
+docker restart taylor_trent_coding_assignment13
+Remove the container
+docker rm -f taylor_trent_coding_assignment13
+View running containers
+docker ps
+View all containers
+docker ps -a
+View Docker images
+docker images
+View container logs
+docker logs taylor_trent_coding_assignment13
+Rebuild the Docker image without using the cache
+docker build --no-cache -t taylor_trent_ui_garden_assignment13 .
+CI/CD Summary
+
+This assignment demonstrates a Continuous Integration (CI) workflow by combining local and remote quality checks.
+
+During development, Husky automatically verifies formatting, linting, and testing before allowing commits.
+
+After code is pushed to GitHub, GitHub Actions repeats the same validation steps to ensure that only code meeting the project's quality standards is accepted.
+
+Finally, Docker creates a production-ready React build that is served by Nginx on port 8018, providing a consistent deployment environment.
+
+Technologies Used
+React
+TypeScript
+Storybook
+Jest
+React Testing Library
+ESLint
+Prettier
+Husky
+GitHub Actions
+Docker
+Nginx

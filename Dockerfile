@@ -1,7 +1,8 @@
-
 FROM node:20-alpine AS builder
 
 WORKDIR /taylor_trent_ui_garden_build_checks
+
+RUN npm install --global npm@11.9.0
 
 COPY package.json package-lock.json ./
 
