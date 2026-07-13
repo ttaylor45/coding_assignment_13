@@ -1,17 +1,30 @@
-FROM node:20-alpine AS build
 
-WORKDIR /taylor_trent_ui_garden
+FROM node:20-alpine AS builder
 
-COPY package.json ./
+WORKDIR /taylor_trent_ui_garden_build_checks
 
-RUN npm install
+COPY package.json package-lock.json ./
+
+RUN npm ci
 
 COPY . .
 
+RUN npm run quality
 RUN npm run build
 
-FROM nginx:alpine
 
-COPY --from=build /taylor_trent_ui_garden/build /usr/share/nginx/html
+FROM nginx:1.27-alpine
 
-EXPOSE 80
+WORKDIR /taylor_trent_ui_garden_build_checks
+
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=builder \
+  /taylor_trent_ui_garden_build_checks/build \
+  /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8018
+
+CMD ["nginx", "-g", "daemon off;"]
