@@ -11,9 +11,17 @@ const Wrapper = styled.div<RadioButtonProps>`
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 `;
 
-export function RadioButton({ label, backgroundColor, disabled }: RadioButtonProps) {
+export function RadioButton({
+  label,
+  backgroundColor,
+  disabled,
+}: RadioButtonProps) {
   return (
-    <Wrapper label={label} backgroundColor={backgroundColor} disabled={disabled}>
+    <Wrapper
+      label={label}
+      backgroundColor={backgroundColor}
+      disabled={disabled}
+    >
       <input type="radio" disabled={disabled} />
       {label}
     </Wrapper>

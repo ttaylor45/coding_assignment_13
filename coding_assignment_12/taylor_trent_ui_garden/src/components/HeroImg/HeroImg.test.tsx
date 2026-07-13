@@ -6,7 +6,7 @@ test("Hero Image is visible", () => {
     <HeroImg
       imageurl="https://via.placeholder.com/1000x300"
       title="Hero Img"
-    />
+    />,
   );
 
   expect(screen.getByText("Hero Img")).toBeVisible();
@@ -18,10 +18,10 @@ test("Hero Image background changes when disabled", () => {
       imageurl="https://via.placeholder.com/1000x300"
       title="Disabled Hero Image"
       disabled
-    />
+    />,
   );
 
-  expect(
-    screen.getByText("Disabled Hero Image").parentElement
-  ).toHaveStyle("background-color: grey");
+  expect(screen.getByTestId("hero-image")).toHaveStyle({
+    backgroundColor: "grey",
+  });
 });

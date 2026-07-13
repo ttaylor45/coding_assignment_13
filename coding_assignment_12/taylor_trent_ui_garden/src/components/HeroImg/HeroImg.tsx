@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { HeroImgProps } from "./HeroImg.types";
 
-const HeroWrapper = styled.div<HeroImgProps>`
+type HeroWrapperProps = {
+  $imageurl: string;
+  disabled?: boolean;
+};
+
+const HeroWrapper = styled.div<HeroWrapperProps>`
   width: 100%;
   min-height: 300px;
-  background-image: url(${(props) => props.imageurl});
+  background-image: url(${(props) => props.$imageurl});
   background-size: cover;
   background-position: center;
   background-color: ${(props) => (props.disabled ? "grey" : "transparent")};
@@ -21,7 +26,11 @@ const HeroTitle = styled.h1`
 
 export function HeroImg({ imageurl, title, disabled }: HeroImgProps) {
   return (
-    <HeroWrapper imageurl={imageurl} title={title} disabled={disabled}>
+    <HeroWrapper
+      data-testid="hero-image"
+      $imageurl={imageurl}
+      disabled={disabled}
+    >
       <HeroTitle>{title}</HeroTitle>
     </HeroWrapper>
   );

@@ -11,7 +11,11 @@ const StyledText = styled.p<TextProps>`
 
 export function Text({ text, backgroundColor, disabled }: TextProps) {
   return (
-    <StyledText text={text} backgroundColor={backgroundColor} disabled={disabled}>
+    <StyledText
+      text={text}
+      backgroundColor={backgroundColor}
+      disabled={disabled}
+    >
       {text}
     </StyledText>
   );

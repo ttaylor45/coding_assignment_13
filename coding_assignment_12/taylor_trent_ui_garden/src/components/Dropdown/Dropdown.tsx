@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { DropdownProps} from "./Dropdown.types";
+import { DropdownProps } from "./Dropdown.types";
 
 const StyledSelect = styled.select<DropdownProps>`
   padding: 8px 12px;
@@ -9,9 +9,17 @@ const StyledSelect = styled.select<DropdownProps>`
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 `;
 
-export function Dropdown({ options, backgroundColor, disabled }: DropdownProps) {
+export function Dropdown({
+  options,
+  backgroundColor,
+  disabled,
+}: DropdownProps) {
   return (
-    <StyledSelect options={options} backgroundColor={backgroundColor} disabled={disabled}>
+    <StyledSelect
+      options={options}
+      backgroundColor={backgroundColor}
+      disabled={disabled}
+    >
       {options.map((option) => (
         <option key={option} value={option}>
           {option}

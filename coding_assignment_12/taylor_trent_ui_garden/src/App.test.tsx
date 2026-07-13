@@ -3,7 +3,5 @@ import App from "./App";
 
 test("renders UI Garden heading", () => {
   render(<App />);
-  expect(
-    screen.getByText("Taylor Trent UI Garden")
-  ).toBeInTheDocument();
+  expect(screen.getByText("Taylor Trent UI Garden")).toBeInTheDocument();
 });

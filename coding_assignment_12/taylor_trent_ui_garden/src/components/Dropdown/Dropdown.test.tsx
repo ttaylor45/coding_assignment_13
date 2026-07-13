@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import { Dropdown } from './Dropdown';
+import { render, screen } from "@testing-library/react";
+import { Dropdown } from "./Dropdown";
 
 test("dropdown is visible", () => {
   render(<Dropdown options={["Option 1", "Option 2"]} />);

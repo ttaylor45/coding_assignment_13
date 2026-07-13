@@ -8,10 +8,6 @@ import { Text } from "./components/Text";
 import { Img } from "./components/Img";
 import { HeroImg } from "./components/HeroImg";
 import React from "react";
-import logo from "./logo.svg";
-
-
-
 
 function App() {
   return (
@@ -28,7 +24,11 @@ function App() {
       <h3>Card</h3>
       <Card title="Card Title" text="This is a card." />
 
-      <Card title="Disabled Card Title" text=" This is a disabled card." disabled />
+      <Card
+        title="Disabled Card Title"
+        text=" This is a disabled card."
+        disabled
+      />
 
       <h3>Dropdown</h3>
       <Dropdown options={["Option 1", "Option 2"]} />
@@ -40,15 +40,13 @@ function App() {
 
       <Label text="Disabled Label" disabled />
 
-
       <h3>Radio Button</h3>
       <RadioButton label="Option A" />
 
       <RadioButton label="Disabled Option" disabled />
 
-
       <h3>Table</h3>
-      <Table/>
+      <Table />
       <br />
       <Table disabled />
 
@@ -56,23 +54,18 @@ function App() {
       <Text text="This is some text." />
       <Text text="Disabled Text" disabled />
 
-
       <h2>Images</h2>
-      <Img
-        src="https://via.placeholder.com/300x150"
-        alt="Default Image"
-      />
+      <Img src="https://via.placeholder.com/300x150" alt="Default Image" />
       <Img
         src="https://via.placeholder.com/300x150"
         alt="Disabled Image"
         disabled
       />
 
-
       <h3>Hero Image</h3>
 
       <HeroImg
-       imageurl="https://via.placeholder.com/1000x300"
+        imageurl="https://via.placeholder.com/1000x300"
         title="Default Hero Image"
       />
       <HeroImg
@@ -80,7 +73,6 @@ function App() {
         title="Disabled Hero Image"
         disabled
       />
-
     </div>
   );
 }

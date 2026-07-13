@@ -4,14 +4,14 @@ import { TableProps } from "./Table.types";
 const StyledTable = styled.table<TableProps>`
   width: 100%;
   border-collapse: collapse;
-  background-color: ${(props) => props.disabled ? "grey" : props.backgroundColor || "white"};
-  cursor: ${(props) => props.disabled ? "not-allowed" : "default"};
+  background-color: ${(props) => (props.disabled ? "grey" : props.backgroundColor || "white")};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "default")};
 `;
 
 const TableHeader = styled.th`
   border: 1px solid black;
   padding: 8px;
-  `;
+`;
 
 const TableCell = styled.td`
   border: 1px solid black;
